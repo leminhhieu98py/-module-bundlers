@@ -56,9 +56,14 @@ module.exports = {
       }
     ]
   },
+  devtool: 'inline-source-map',
+  devServer: {
+    static: './dist',
+    port: 1233
+  },
   plugins: [
     new HTMLWebpackPlugin({
-      title: 'Output management'
+      title: 'Development'
     })
   ],
   output: {
