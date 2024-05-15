@@ -1,0 +1,20 @@
+@font-face {
+    font-family: OtisFont;
+    src: url('./asset/PoetsenOne-Regular.ttf');
+}
+
+.container {
+    color: blue;
+    border: 1px solid blueviolet;
+    background-image: url('./asset/pokemon.jpeg');
+    height: 500px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    font-family: 'OtisFont';
+}
+
+.pokemon {
+    margin-top: 20px;
+    display: block;
+    border: 1px solid blueviolet;
+}

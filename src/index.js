@@ -1,12 +1,24 @@
 import { join } from 'lodash';
+import './style.css';
+import { importAsset, renderImage } from './assetManagement';
 
-function component() {
+const renderComponent = () => {
   const element = document.createElement('div');
 
   // Lodash, now imported by this script
   element.innerHTML = join(['Hello', 'webpack', 'from Otiss'], ' ');
+  element.classList.add('container');
 
-  return element;
-}
+  document.body.appendChild(element);
+};
 
-document.body.appendChild(component());
+const onload = () => {
+  // Getting started
+  renderComponent();
+
+  // Asset management
+  renderImage();
+  importAsset();
+};
+
+onload();
