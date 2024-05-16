@@ -3,13 +3,25 @@ const toml = require('toml');
 const yamljs = require('yamljs');
 const json5 = require('json5');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
+const BundleAnalyzerPlugin =
+  require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 const fontRegex = /\.(woff|woff2|eot|ttf|otf)$/i;
 const imageRegex = /\.(png|svg|jpg|jpeg|gif)$/i;
 
 module.exports = {
   mode: 'development',
-  entry: './src/index.js',
+  entry: {
+    index: {
+      import: './src/index.js',
+      dependOn: 'share'
+    },
+    another: {
+      import: './src/another-module.js',
+      dependOn: 'share'
+    },
+    share: 'lodash'
+  },
   module: {
     rules: [
       // Asset management
@@ -64,7 +76,8 @@ module.exports = {
   plugins: [
     new HTMLWebpackPlugin({
       title: 'Development'
-    })
+    }),
+    new BundleAnalyzerPlugin()
   ],
   output: {
     filename: '[name].bundle.js',
@@ -76,5 +89,8 @@ module.exports = {
       return 'asset/[name][ext]';
     },
     clean: true
+  },
+  optimization: {
+    runtimeChunk: 'single'
   }
 };
