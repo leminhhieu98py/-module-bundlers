@@ -65,12 +65,12 @@ module.exports = {
   },
   plugins: [
     new HTMLWebpackPlugin({
-      title: 'Development'
+      title: 'Caching'
     }),
     new BundleAnalyzerPlugin()
   ],
   output: {
-    filename: '[name].bundle.js',
+    filename: '[name].[contenthash].js',
     path: path.resolve(__dirname, 'dist'),
     assetModuleFilename: ({ filename }) => {
       if (fontRegex.test(filename)) return 'fonts/[name][ext]';
@@ -79,5 +79,18 @@ module.exports = {
       return 'asset/[name][ext]';
     },
     clean: true
+  },
+  optimization: {
+    moduleIds: 'deterministic',
+    runtimeChunk: 'single',
+    splitChunks: {
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+          chunks: 'all'
+        }
+      }
+    }
   }
 };
