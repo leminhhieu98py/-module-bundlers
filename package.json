@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "build:webpack": "webpack",
-    "start:webpack": "webpack serve --open"
+    "start:webpack": "webpack serve --env mode=development --open"
   },
   "keywords": [],
   "author": "",
