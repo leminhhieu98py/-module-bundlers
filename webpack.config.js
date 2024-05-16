@@ -12,15 +12,8 @@ const imageRegex = /\.(png|svg|jpg|jpeg|gif)$/i;
 module.exports = {
   mode: 'development',
   entry: {
-    index: {
-      import: './src/index.js',
-      dependOn: 'share'
-    },
-    another: {
-      import: './src/another-module.js',
-      dependOn: 'share'
-    },
-    share: 'lodash'
+    index: './src/index.js',
+    another: './src/another-module.js'
   },
   module: {
     rules: [
@@ -91,6 +84,8 @@ module.exports = {
     clean: true
   },
   optimization: {
-    runtimeChunk: 'single'
+    splitChunks: {
+      chunks: 'all'
+    }
   }
 };
