@@ -8,6 +8,11 @@ const renderComponent = () => {
   // Lodash, now imported by this script
   element.innerHTML = join(['Hello', 'webpack', 'from Otiss'], ' ');
   element.classList.add('container');
+  element.onclick = async () => {
+    const { print } = await import('./print.js');
+
+    print?.();
+  };
 
   document.body.appendChild(element);
 };

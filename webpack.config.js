@@ -11,10 +11,7 @@ const imageRegex = /\.(png|svg|jpg|jpeg|gif)$/i;
 
 module.exports = {
   mode: 'development',
-  entry: {
-    index: './src/index.js',
-    another: './src/another-module.js'
-  },
+  entry: './src/index.js',
   module: {
     rules: [
       // Asset management
@@ -82,10 +79,5 @@ module.exports = {
       return 'asset/[name][ext]';
     },
     clean: true
-  },
-  optimization: {
-    splitChunks: {
-      chunks: 'all'
-    }
   }
 };
