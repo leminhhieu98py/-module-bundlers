@@ -3,6 +3,7 @@ const HTMLWebpackPlugin = require('html-webpack-plugin');
 const toml = require('toml');
 const yamljs = require('yamljs');
 const json5 = require('json5');
+const webpack = require('webpack');
 
 const fontRegex = /\.(woff|woff2|eot|ttf|otf)$/i;
 const imageRegex = /\.(png|svg|jpg|jpeg|gif)$/i;
@@ -12,6 +13,10 @@ module.exports = {
   plugins: [
     new HTMLWebpackPlugin({
       title: 'Production Learning'
+    }),
+    new webpack.ProvidePlugin({
+      _: 'lodash-es',
+      subtract: ['lodash-es', 'subtract']
     })
   ],
   module: {
