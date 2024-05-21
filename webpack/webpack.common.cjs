@@ -9,7 +9,7 @@ const fontRegex = /\.(woff|woff2|eot|ttf|otf)$/i;
 const imageRegex = /\.(png|svg|jpg|jpeg|gif)$/i;
 
 module.exports = {
-  entry: './src/index.js',
+  entry: './src/index.ts',
   plugins: [
     new HTMLWebpackPlugin({
       title: 'Production Learning'
@@ -59,13 +59,23 @@ module.exports = {
           parse: json5.parse
         }
       },
+      // Resolve js extension
       {
         test: /\.m?js/,
         resolve: {
           fullySpecified: false
         }
+      },
+      // Resolve ts extension
+      {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/
       }
     ]
+  },
+  resolve: {
+    extensions: ['.tsx', '.ts', '.js']
   },
   output: {
     filename: '[name].[contenthash].js',

@@ -10,7 +10,7 @@ const renderComponent = () => {
   element.innerHTML = join(['Hello', 'webpack', 'from Otiss'], ' ');
   element.classList.add('container');
   element.onclick = async () => {
-    const { print } = await import('./print.js');
+    const { print } = await import('./print');
 
     print?.();
   };
