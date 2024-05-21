@@ -53,6 +53,12 @@ module.exports = {
         parser: {
           parse: json5.parse
         }
+      },
+      {
+        test: /\.m?js/,
+        resolve: {
+          fullySpecified: false
+        }
       }
     ]
   },

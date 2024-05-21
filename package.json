@@ -2,10 +2,11 @@
   "name": "module-bundlers",
   "version": "1.0.0",
   "description": "Webpack - Vite - Parcel",
+  "type": "module",
   "private": true,
   "scripts": {
-    "build:webpack": "webpack --config ./webpack/webpack.prod.js",
-    "start:webpack": "webpack serve --config ./webpack/webpack.dev.js --open"
+    "build:webpack": "webpack --config ./webpack/webpack.prod.cjs",
+    "start:webpack": "webpack serve --config ./webpack/webpack.dev.cjs --open"
   },
   "keywords": [],
   "author": "",
