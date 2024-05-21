@@ -2,6 +2,7 @@ import 'babel-polyfill';
 import { join } from 'lodash-es';
 import './style.css';
 import { importAsset, renderImage } from './assetManagement';
+import { registerSW } from './serviceWorker';
 
 const renderComponent = () => {
   const element = document.createElement('div');
@@ -27,4 +28,5 @@ const onload = () => {
   importAsset();
 };
 
+registerSW();
 onload();

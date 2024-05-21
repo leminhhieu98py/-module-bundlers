@@ -1,5 +1,6 @@
 const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
+const WorkboxWebpackPlugin = require('workbox-webpack-plugin');
 const toml = require('toml');
 const yamljs = require('yamljs');
 const json5 = require('json5');
@@ -12,11 +13,15 @@ module.exports = {
   entry: './src/index.ts',
   plugins: [
     new HTMLWebpackPlugin({
-      title: 'Production Learning'
+      title: 'Progressive Web Application (PWA)'
     }),
     new webpack.ProvidePlugin({
       _: 'lodash-es',
       subtract: ['lodash-es', 'subtract']
+    }),
+    new WorkboxWebpackPlugin.GenerateSW({
+      clientsClaim: true,
+      skipWaiting: true
     })
   ],
   module: {
