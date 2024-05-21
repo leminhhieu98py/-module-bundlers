@@ -1,4 +1,4 @@
-import { join } from 'lodash';
+import { join } from 'lodash-es';
 import './style.css';
 import { importAsset, renderImage } from './assetManagement';
 
