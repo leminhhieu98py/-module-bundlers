@@ -29,6 +29,7 @@
     "yamljs": "^0.3.0"
   },
   "dependencies": {
+    "babel-polyfill": "^6.26.0",
     "lodash-es": "^4.17.21"
   }
 }
