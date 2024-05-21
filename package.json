@@ -4,23 +4,26 @@
   "description": "Webpack - Vite - Parcel",
   "private": true,
   "scripts": {
-    "build:webpack": "webpack",
-    "start:webpack": "webpack serve --env mode=development --open"
+    "build:webpack": "webpack --config ./webpack/webpack.prod.js",
+    "start:webpack": "webpack serve --config ./webpack/webpack.dev.js --open"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "css-loader": "^7.1.1",
+    "css-minimizer-webpack-plugin": "^7.0.0",
     "csv-loader": "^3.0.5",
     "html-webpack-plugin": "^5.6.0",
     "json5": "^2.2.3",
+    "mini-css-extract-plugin": "^2.9.0",
     "style-loader": "^4.0.0",
     "toml": "^3.0.0",
     "webpack": "^5.91.0",
     "webpack-bundle-analyzer": "^4.10.2",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^5.0.4",
+    "webpack-merge": "^5.10.0",
     "xml-loader": "^1.2.1",
     "yamljs": "^0.3.0"
   },
