@@ -21,17 +21,11 @@ module.exports = merge(common, {
   },
   devtool: 'source-map',
   optimization: {
-    moduleIds: 'deterministic',
-    usedExports: true,
-    splitChunks: {
-      cacheGroups: {
-        vendor: {
-          test: /[\\/]node_modules[\\/]/,
-          name: 'vendors',
-          chunks: 'all'
-        }
-      }
-    },
     minimizer: [new CssMinimizerWebpackPlugin()]
+  },
+  performance: {
+    hints: false,
+    maxEntrypointSize: 244000,
+    maxAssetSize: 244000
   }
 });

@@ -65,5 +65,19 @@ module.exports = {
     },
     publicPath: ASSET_PATH,
     clean: true
+  },
+  optimization: {
+    moduleIds: 'deterministic',
+    usedExports: true,
+    splitChunks: {
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+          chunks: 'all'
+        }
+      },
+      maxSize: 512000 // 512KB
+    }
   }
 };
