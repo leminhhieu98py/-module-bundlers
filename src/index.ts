@@ -1,8 +1,8 @@
 import 'babel-polyfill';
 import { join } from 'lodash-es';
 import './style.css';
-import { importAsset, renderImage } from './assetManagement';
-import { registerSW } from './serviceWorker';
+import { importAsset, renderImage } from 'src/assetManagement';
+import { registerSW } from 'src/serviceWorker';
 
 const renderComponent = () => {
   const element = document.createElement('div');
