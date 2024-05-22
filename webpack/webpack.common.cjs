@@ -2,6 +2,12 @@ const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const WorkboxWebpackPlugin = require('workbox-webpack-plugin');
 const webpack = require('webpack');
+const dotenv = require('dotenv');
+
+dotenv.config({ path: `env/.env.${process.env.NODE_ENV}` });
+
+const ASSET_PATH = process.env.ASSET_PATH || '/';
+
 const {
   config: assetConfig,
   fontRegex,
@@ -21,6 +27,9 @@ module.exports = {
     new WorkboxWebpackPlugin.GenerateSW({
       clientsClaim: true,
       skipWaiting: true
+    }),
+    new webpack.DefinePlugin({
+      'process.env.ASSET_PATH': JSON.stringify(process.env.ASSET_PATH)
     })
   ],
   module: {
@@ -54,6 +63,7 @@ module.exports = {
 
       return 'asset/[name][ext]';
     },
+    publicPath: ASSET_PATH,
     clean: true
   }
 };
